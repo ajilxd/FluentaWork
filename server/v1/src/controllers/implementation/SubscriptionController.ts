@@ -28,6 +28,7 @@ class SubscriptionController implements ISubscriptionController {
     next: NextFunction
   ): Promise<any> => {
     try {
+      console.log("hiii iam subscription");
       const data = await this.SubscriptionService.showAll();
 
       return res.status(200).json({ status: "success", data: data });

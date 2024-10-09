@@ -5,6 +5,7 @@ import config from "./config";
 import { ownerRouter } from "./routes/ownerRoute";
 import { adminRouter } from "./routes/adminRoute";
 import cookieParser from "cookie-parser";
+import { Systemlogger } from "./utils/systemLogger";
 
 const app = express();
 
@@ -17,5 +18,5 @@ app.use(errorHandler);
 
 connectMongodb();
 app.listen(config.PORT, () =>
-  console.log(`server started running at ${config.PORT}`)
+  Systemlogger.info(`server started running at ${config.PORT}`)
 );

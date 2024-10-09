@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 type RequestType = Request & { user: any };
 const authorizeRole = (role: string) => {
-  return (req: RequestType, res: Response, next: NextFunction) => {
+  return (req: any, res: Response, next: NextFunction): Promise<void> | any => {
     console.log("req.user at authorize role", req.user);
     if (!req.user || req.user.role !== role) {
       return res
